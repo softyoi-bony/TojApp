@@ -1,10 +1,7 @@
-import {
-  NavigationContainer
-} from '@react-navigation/native';
-import { StatusBar, StyleSheet, useColorScheme } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
-import { navigationRef } from './src/navigation/StackKeys';
-import RouterNavigator from './src/navigation/StackRouter';
+import { NavigationContainer } from '@react-navigation/native';
+import { StatusBar, useColorScheme } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import RootNavigation from './src/navigation/RootNavigation';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -12,25 +9,11 @@ function App() {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <AppContent />
+      <NavigationContainer>
+        <RootNavigation />
+      </NavigationContainer>
     </SafeAreaProvider>
   );
 }
-
-function AppContent() {
-  return (
-    <SafeAreaView style={styles.container}>
-      <NavigationContainer ref={navigationRef}>
-        <RouterNavigator />
-      </NavigationContainer>
-    </SafeAreaView>
-  );
-}
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-  },
-});
 
 export default App;
