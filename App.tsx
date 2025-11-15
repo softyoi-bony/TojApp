@@ -1,7 +1,10 @@
+import 'react-native-reanimated';
 import { NavigationContainer } from '@react-navigation/native';
 import { StatusBar, useColorScheme } from 'react-native';
 import { SafeAreaProvider } from 'react-native-safe-area-context';
-import RootNavigation from './src/navigation/RootNavigation';
+import { RootNavigator } from './src/navigation/RootNavigator';
+import { navigationRef } from './src/navigation/StackKeys';
+import 'react-native-gesture-handler';
 
 function App() {
   const isDarkMode = useColorScheme() === 'dark';
@@ -9,8 +12,8 @@ function App() {
   return (
     <SafeAreaProvider>
       <StatusBar barStyle={isDarkMode ? 'light-content' : 'dark-content'} />
-      <NavigationContainer>
-        <RootNavigation />
+      <NavigationContainer ref={navigationRef}>
+        <RootNavigator />
       </NavigationContainer>
     </SafeAreaProvider>
   );
