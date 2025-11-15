@@ -66,7 +66,7 @@ export const DrawerNavigator: React.FC = () => {
       <Drawer.Screen
         name="MainTabs"
         component={MainTabs}
-        options={{ title: 'Home', drawerLabel: 'Home' }}
+        options={{ title: '', drawerLabel: 'Home' }}
       />
       <Drawer.Screen
         name="Categories"
@@ -76,7 +76,7 @@ export const DrawerNavigator: React.FC = () => {
       <Drawer.Screen
         name="OrdersStack"
         component={OrdersStack}
-        options={{ title: 'Orders', headerShown: false }}
+        options={{ title: 'Orders', headerShown: true }}
       />
       <Drawer.Screen
         name="Profile"

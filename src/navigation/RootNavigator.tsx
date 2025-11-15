@@ -12,5 +12,5 @@ export const RootNavigator: React.FC = () => {
     loadProducts();
   }, [loadProducts]);
 
-  return !isLoggedIn ? <DrawerNavigator /> : <AuthStack />;
+  return isLoggedIn ? <DrawerNavigator /> : <AuthStack />;
 };
